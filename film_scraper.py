@@ -2,7 +2,6 @@ from bs4 import BeautifulSoup as soup
 import xlsxwriter
 import time
 import requests
-import lxml
 import aiohttp
 import asyncio
 
@@ -123,7 +122,7 @@ my_url = 'https://www.imdb.com/calendar?region=GB&ref_=rlm'
 req = requests.get(my_url).text
 
 #parsing the html from the page so we can extract it
-page_soup = soup(req, 'lxml')
+page_soup = soup(req, 'html.parser')
 
 #Get all the film release dates
 film_names = get_film_names_info(page_soup)
